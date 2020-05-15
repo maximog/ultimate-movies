@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useFetch } from './hooks/useFetch';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar.component';
+import CardContainer from './components/CardContainer/CardContainer.component';
+import { StyledMain } from './App.styles';
+import DetailedView from './views/DetailedView/DetailedView.component';
 
-function App() {
+
+
+const App = () => {
+  const movies = useFetch('movies');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <StyledMain>
+        <Switch>
+          <Route exact path='/'>
+            {movies &&
+              <>
+                <CardContainer title={"Peliculas Populares"} type={"movie"} movies={movies.results} link={true} />
+                <CardContainer title={"Peliculas Tendencia"} type={"movie"} movies={movies.results} link={true} />
+              </>
+            }
+          </Route>
+          <Route exact path='/detailed'>
+            {movies && <DetailedView movie={movies.results[0]}/>}
+          </Route>
+        </Switch>
+      </StyledMain>
+    </Router>
   );
 }
 

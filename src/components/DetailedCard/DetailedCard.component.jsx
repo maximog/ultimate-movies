@@ -8,14 +8,14 @@ const DetailedCard = ({movie}) => {
             <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
             </DetailedCardImgDiv>
             <DetailedCardContent>
-                <h2>Nombre Pelicula</h2>
-                <p>Rating de estrellas</p>
-                <p>Descripcion</p>
-                <p>Duracion: XXX min</p>
-                <p>Generos: ADASD, aDASDA</p>
-                <p>Presupuesto: $340923049</p>
-                <p>Recaudacion: $1329129319239</p>
-                <p>Produccion: asdaskdadkajsd</p>
+                <h2>{movie.original_title}</h2>
+                <p>Rating: {movie.vote_average}</p>
+                <p>{movie.overview}</p>
+                <p>Duracion: {movie.runtime} min</p>
+                <p>Generos: {movie.genres.map(genre => genre.name)}</p>
+                <p>Presupuesto: ${movie.budget}</p>
+                <p>Recaudacion: ${movie.revenue}</p>
+                <p>Produccion: {movie.production_companies.map(comp => comp.name)}</p>
             </DetailedCardContent>
         </DetailedCardArticle>
     );

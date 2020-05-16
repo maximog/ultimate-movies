@@ -24,9 +24,6 @@ export const StyledSection = styled.section`
         padding-top: 5px;
         fill: lightblue;
         
-        :hover {
-            fill: yellow;
-        }
 }
 `;
 

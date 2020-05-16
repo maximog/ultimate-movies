@@ -9,23 +9,24 @@ import DetailedView from './views/DetailedView/DetailedView.component';
 
 
 const App = () => {
-  const movies = useFetch('movies');
+  const movies = useFetch(['movie', 'popular'], {page: 2});
   return (
     <Router>
       <NavBar />
       <StyledMain>
         <Switch>
+
           <Route exact path='/'>
             {movies &&
               <>
                 <CardContainer title={"Peliculas Populares"} type={"movie"} movies={movies.results} link={true} />
-                <CardContainer title={"Peliculas Tendencia"} type={"movie"} movies={movies.results} link={true} />
+                <CardContainer title={"Peliculas Tendencia"} type={"movie"} movies={movies.results} link={false} />
               </>
             }
           </Route>
-          <Route exact path='/detailed'>
-            {movies && <DetailedView movie={movies.results[0]}/>}
-          </Route>
+          <Route path='/:type/:id/:info' component={DetailedView} />
+
+
         </Switch>
       </StyledMain>
     </Router>

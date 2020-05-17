@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
     .container-movies {
         display: flex;
         flex-direction: row;
@@ -13,7 +17,7 @@ export const StyledSection = styled.section`
         align-items: center;
         margin: 30px 10px;
         color: ivory;
-        cursor: pointer;
+       
         
     }
     margin-left: 20px;

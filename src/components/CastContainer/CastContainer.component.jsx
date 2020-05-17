@@ -1,20 +1,19 @@
 import React from 'react';
 import Card from '../Card/Card.component';
+import CardContainer from '../CardContainer/CardContainer.component';
+import { useFetch } from '../../hooks/useFetch';
 
 
-const CastContainer = ({cast, each, link}) => {
+const CastContainer = ({media, id}) => {
+    const data = useFetch([media, id, 'credits']);
+    console.log(data)
     return (
         <section>
-            <div className='cast-container'>
-            {cast.map((each, i) => {
-                if(link && i<5) {
-                    return <Card key={each.id} movie={each} />
-                } else if (!link) {
-                    return <Card key={each.id} movie={each} />
-                }
-            }
-            )}
-            </div>
+           {/* {data && data.cast.map(each=>(
+               <Card key={each.id} movie={each} cast={true}/>
+               ))} */}
+
+        {data && <CardContainer movies={data.cast} cast={true}/>}
         </section>
     );
 }

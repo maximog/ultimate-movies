@@ -4,27 +4,33 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar.component';
 import CardContainer from './components/CardContainer/CardContainer.component';
 import { StyledMain } from './App.styles';
-import DetailedView from './views/DetailedView/DetailedView.component';
-
+import DetailedView from './views/DetailedViews/DetailedView.component';
+import MovieView from './views/MovieView/MovieView.component';
+import HomeView from './views/HomeView/HomeView.component';
+import TvView from './views/TvView/TvView.component';
+import MediaView from './views/MediaView/MediaView.component';
+import DetailedCard from './components/DetailedCard/DetailedCard.component';
+import DetailedTv from './views/DetailedViews/DetailedTv.component';
 
 
 const App = () => {
-  const movies = useFetch(['movie', 'popular'], {page: 2});
   return (
     <Router>
       <NavBar />
       <StyledMain>
         <Switch>
+          <Route exact path='/' component={HomeView} />
+          <Route exact path='/movie' component={MovieView} />
+          <Route exact path='/tv' component={TvView} />
+          <Route exact path='/:media/:type/page/:pageNumber' component={MediaView} />
 
-          <Route exact path='/'>
-            {movies &&
-              <>
-                <CardContainer title={"Peliculas Populares"} type={"movie"} movies={movies.results} link={true} />
-                <CardContainer title={"Peliculas Tendencia"} type={"movie"} movies={movies.results} link={false} />
-              </>
-            }
+          <Route exact path='/person/:id/:section' >
+            <p>Persona</p>
           </Route>
-          <Route path='/:type/:id/:info' component={DetailedView} />
+
+          <Route path='/:media/:id/:section/:seasonNumber?' component={DetailedView} />
+          {/* <Route exact path='/tv/:id/:section' component={DetailedTv} /> */}
+          {/* <Route path='/:type/:id/info' component={DetailedCard} /> */}
 
 
         </Switch>

@@ -1,27 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { StyledInfoLinkDiv } from './InfoLinks.styles';
 
-const InfoLinks = ({media, id}) => {
+const InfoLinks = ({ media, id, match }) => {
 
     const endPoints = media === 'movie' ? ['info', 'cast', 'videos', 'similar'] : ['info', 'seasons/1', 'cast', 'similar'];
-    const titles = media === 'movie' ? ['Info', 'Reparto', 'Videos', 'Similares'] : ['Info', 'Episodios', 'Reparto', 'Similares']; 
+    const titles = media === 'movie' ? ['Info', 'Reparto', 'Videos', 'Similares'] : ['Info', 'Episodios', 'Reparto', 'Similares'];
 
-
+    console.log(match)
     return (
-        <>
-            <Link to={`/${media}/${id}/${endPoints[0]}`}>
-                <p>{titles[0]}</p>
-            </Link>
-            <Link to={`/${media}/${id}/${endPoints[1]}`}>
-                <p>{titles[1]}</p>
-            </Link>
-            <Link to={`/${media}/${id}/${endPoints[2]}`}>
-                <p>{titles[2]}</p>
-            </Link>
-            <Link to={`/${media}/${id}/${endPoints[3]}`}>
-                <p>{titles[3]}</p>
-            </Link>
-        </>
+        <StyledInfoLinkDiv>
+            {endPoints.map((each, i) => (
+                <Link to={`/${media}/${id}/${each}`} key={`${media}-${id}-${each}`}>
+                    <p>{titles[i]}</p>
+                </Link>
+            ))}
+        </StyledInfoLinkDiv>
     );
 }
 

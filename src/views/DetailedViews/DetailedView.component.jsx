@@ -1,37 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import { DetailedStyledSection, DetailedImgDiv, DetailedLinks } from './DetailedView.styles';
 import { useFetch } from '../../hooks/useFetch';
 import DetailedCard from '../../components/DetailedCard/DetailedCard.component';
-import CardContainer from '../../components/CardContainer/CardContainer.component';
 import CastContainer from '../../components/CastContainer/CastContainer.component';
 import InfoLinks from '../../components/InfoLinks/InfoLinks.component';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import SeasonContainer from '../../components/SeasonContainer/SeasonContainer.component';
 
 const DetailedView = ({ history, match, location }) => {
 
     const info = useFetch([match.params.media, match.params.id]);
-    
+
     const { media, id } = match.params;
     let {section} = match.params;
 
     return (
-        info && <DetailedStyledSection>
+        info && <DetailedStyledSection >
             <DetailedImgDiv>
-                <img src={`https://image.tmdb.org/t/p/original${info.backdrop_path}`} />
+                <img src={`https://image.tmdb.org/t/p/original${info.backdrop_path}`} alt=''/>
             </DetailedImgDiv>
             <DetailedLinks>
-                <InfoLinks media={media} id={id}/>
+                <InfoLinks media={media} id={id} match={match}/>
             </DetailedLinks>
-    
-
-            {section === 'info' && <DetailedCard data={info} />}
-            {section === 'cast' && <CastContainer id={id} media={media}/>}
+            <Switch>
+                <Route exact path={`/${media}/${id}/info`} render={()=> <DetailedCard data={info} />} />
+                <Route exact path={`/${media}/${id}/cast`} render={()=> <CastContainer apiCall={[media, id, 'credits']} cast={true} />} />
+                <Route exact path={`/${media}/${id}/similar`} render={()=> <CastContainer apiCall={[media, id, 'similar']} cast={false} type={media}/>} />
+                <Route exact path={`/${media}/${id}/seasons/:seasonNumber`} render={()=> <SeasonContainer data={info} />} />
+            </Switch>
+            {/* {section === 'info' && <DetailedCard data={info} />} */}
+            {/* {section === 'cast' && <CastContainer apiCall={[media, id, 'credits']} cast={true} />}
+            {section === 'similar' && <CastContainer apiCall={[media, id, 'similar']} cast={false} type={media}/>} */}
             {section === 'videos' && <p>Videos</p>}
-            {section === 'similar' && <p>Similares</p>}
             {section === 'seasons' && <p>Temporadas</p>}
-
         </DetailedStyledSection>
     );
 }
 
-export default DetailedView;
+export default withRouter(DetailedView);

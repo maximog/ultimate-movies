@@ -6,7 +6,7 @@ const DetailedCard = ({data}) => {
     return (
         <DetailedCardArticle>
             <DetailedCardImgDiv>
-            <img src={`https://image.tmdb.org/t/p/original${data.poster_path}`} />
+            <img src={`https://image.tmdb.org/t/p/original${data.poster_path}`} alt=''/>
             </DetailedCardImgDiv>
             <DetailedCardContent>
                 <h2>{title}</h2>

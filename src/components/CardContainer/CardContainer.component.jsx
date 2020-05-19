@@ -21,6 +21,7 @@ const CardContainer = ({ title, movies, link, type, cast }) => {
                     } else if (!link) {
                         return <Card key={movie.id} movie={movie} type={type} cast={cast}/>
                     }
+                    return null;
                 }
                 )}
             </div>

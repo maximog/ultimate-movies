@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyledArticle } from './Card.styles';
+import NoImage from '../../assets/noimage280.jpg';
+
 
 const Card = ({ movie: { poster_path, title, subtitle, id, media_type, name, profile_path, character }, type, cast }) => {
     const media = media_type ? media_type : type;
@@ -11,7 +13,7 @@ const Card = ({ movie: { poster_path, title, subtitle, id, media_type, name, pro
     return (
         <StyledArticle>
             {<Link to={`/${dest}/${id}/info`}>
-                <img src={`https://image.tmdb.org/t/p/w500${img}`} />
+                <img src={img ? `https://image.tmdb.org/t/p/w500${img}` : NoImage} alt=''/>
                 <h3>{cardName}</h3>
                 {sub && <h4>{sub}</h4>}
             </Link>}

@@ -1,19 +1,14 @@
 import React from 'react';
-import Card from '../Card/Card.component';
 import CardContainer from '../CardContainer/CardContainer.component';
 import { useFetch } from '../../hooks/useFetch';
 
 
-const CastContainer = ({media, id}) => {
-    const data = useFetch([media, id, 'credits']);
-    console.log(data)
+const CastContainer = ({ apiCall, cast, type }) => {
+    const data = useFetch([...apiCall]);
+    const results = cast ? 'cast' : 'results';
     return (
         <section>
-           {/* {data && data.cast.map(each=>(
-               <Card key={each.id} movie={each} cast={true}/>
-               ))} */}
-
-        {data && <CardContainer movies={data.cast} cast={true}/>}
+            {data && <CardContainer movies={data[results]} cast={cast} type={type}/>}
         </section>
     );
 }

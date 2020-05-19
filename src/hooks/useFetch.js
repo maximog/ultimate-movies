@@ -14,14 +14,13 @@ export const useFetch = (arr, obj = { query: '', page: '' }) => {
             ...(obj.query && { query: obj.query }),
             ...(obj.page && { page: obj.page }),
         });
-        console.log(urlApi)
         return urlApi;
     }
     useEffect(() => {
         fetch(getApiUrl())
             .then(res => res.json())
             .then(data => setData(data));
-    }, []);
-    console.log(data)
+    }, [...arr]);
+
     return data;
 };

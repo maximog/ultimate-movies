@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { ReactComponent as Home } from '../../assets/home.svg';
 import { ReactComponent as Movies } from '../../assets/movies.svg';
@@ -12,7 +12,7 @@ import SearchBar from '../SearchBar/SearchBar.component';
 const NavBar = () => {
 
     const location = useLocation();
-    console.log(location)
+
     return (
         <StyledNav>
             <StyledLink to='/' checked={location.pathname === '/'}>

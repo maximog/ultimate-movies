@@ -9,11 +9,12 @@ export const StyledArticle = styled.article`
     display: flex;
     flex-direction: column;
     width: 280px;
-    height: auto;
+
     margin: 5px;
     img {
         width: 100%;
-        height: auto;
+        height: 420px;
+
         transition: all 0.3s;
        
     }

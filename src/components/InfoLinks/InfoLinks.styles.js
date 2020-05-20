@@ -6,4 +6,12 @@ export const StyledInfoLinkDiv = styled.div`
         text-decoration: none;
         text-transform: uppercase;
     }
+
+    .selected {
+        p {
+            color: ivory;
+            text-decoration: underline;
+        }
+    }
+    
 `;

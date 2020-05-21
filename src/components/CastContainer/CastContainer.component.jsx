@@ -3,13 +3,28 @@ import CardContainer from '../CardContainer/CardContainer.component';
 import { useFetch } from '../../hooks/useFetch';
 
 
-const CastContainer = ({ apiCall, cast, type, cardType }) => {
+const CastContainer = ({ apiCall, type, cardType }) => {
     const data = useFetch([...apiCall]);
-    const results = cast ? 'cast' : 'results';
-    console.log(data)
+    
+    let results = 'results';
+
+    switch (cardType) {
+        case 'cast':
+        case 'credits':
+            results = 'cast';
+            break;
+        case 'media':
+            results = 'results';
+            break;
+        default:
+            break;
+    }
+
+    console.log(results, 'results')
+    console.log(cardType, "cardType")
     return (
         <section>
-            {data && <CardContainer movies={data[results]} cast={cast} type={type} cardType={cardType}/>}
+            {data && <CardContainer movies={data[results]} type={type} cardType={cardType}/>}
         </section>
     );
 }

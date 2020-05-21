@@ -2,12 +2,12 @@ import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import CardContainer from '../../components/CardContainer/CardContainer.component';
 
-const MediaView = ({match = {params: ''}}) => {
-    console.log(match)
-    // const [media, type] = match.params;
-    
-    const search = (match.params.type === "trending") ? [match.params.type, match.params.media, 'week'] : [match.params.media, match.params.type];
-    
+const MediaView = ({ match = { params: '' } }) => {
+
+    let search = (match.params.type === "trending") ? [match.params.type, match.params.media, 'week'] : [match.params.media, match.params.type];
+
+    search = match.params.media === 'multi' ? ['search', 'multi'] : search;
+
     let title = '';
     switch (match.params.type) {
         case 'trending':
@@ -29,15 +29,17 @@ const MediaView = ({match = {params: ''}}) => {
             title = 'Series al Aire';
             break;
         default:
-            title = "Resultados";
+            title = `Resultados para: ${match.params.type}`;
             break;
     }
 
-
-    const data = useFetch(search, {page: match.params.pageNumber});
-    return(
+    const data = useFetch(search, {
+        page: match.params.pageNumber,
+        ...(match.params.media === 'multi' && { query: match.params.type })
+    });
+    return (
         <div>
-            {data && <CardContainer title={title} movies={data.results} type={match.params.media}/>}
+            {data && <CardContainer title={title} movies={data.results} type={match.params.media} cardType='media' />}
         </div>
     );
 };

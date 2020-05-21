@@ -33,7 +33,7 @@ const PersonView = ({ match }) => {
                 <Route
                     exact
                     path={`/person/${id}/credits`}
-                    render={() => <CastContainer apiCall={['person', id, 'combined_credits']} cast={false} cardType={true} />}
+                    render={() => <CastContainer apiCall={['person', id, 'combined_credits']} cardType={'credits'} />}
                 />
             </Switch>
         </DetailedStyledSection>

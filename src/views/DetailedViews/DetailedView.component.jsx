@@ -29,8 +29,8 @@ const DetailedView = ({ match }) => {
             </DetailedLinks>
             <Switch>
                 <Route exact path={`/${media}/${id}/info`} render={()=> <DetailedCard data={info} />} />
-                <Route exact path={`/${media}/${id}/cast`} render={()=> <CastContainer apiCall={[media, id, 'credits']} cast={true} />} />
-                <Route exact path={`/${media}/${id}/similar`} render={()=> <CastContainer apiCall={[media, id, 'similar']} cast={false} type={media}/>} />
+                <Route exact path={`/${media}/${id}/cast`} render={()=> <CastContainer apiCall={[media, id, 'credits']} cardType={'cast'} />} />
+                <Route exact path={`/${media}/${id}/similar`} render={()=> <CastContainer apiCall={[media, id, 'similar']} cardType={'media'} type={media}/>} />
                 <Route exact path={`/${media}/${id}/seasons/:seasonNumber`} render={(props)=> <SeasonContainer id={id} data={info} {...props}/>} />
             </Switch>
             {section === 'videos' && <p>Videos</p>}

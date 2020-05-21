@@ -4,7 +4,7 @@ import { StyledSection } from './CardContainer.styles';
 import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 import { Link } from 'react-router-dom';
 
-const CardContainer = ({ title, movies, link, type, cast, cardType }) => {
+const CardContainer = ({ title, movies, link, type, cardType }) => {
     return (
         <StyledSection>
             {link ?
@@ -17,9 +17,9 @@ const CardContainer = ({ title, movies, link, type, cast, cardType }) => {
             <div className='container-movies'>
                 {movies && movies.map((movie, i) => {
                     if (link && i < 5) {
-                        return <Card key={movie.id} movie={movie} type={type} cast={cast} />
+                        return <Card key={movie.id + i} movie={movie} type={type} />
                     } else if (!link) {
-                        return <Card key={movie.id} movie={movie} type={type} cast={cast} cardType={cardType} />
+                        return <Card key={movie.id + i} movie={movie} type={type} cardType={cardType} />
                     }
                     return null;
                 }

@@ -7,11 +7,7 @@ const MovieView = ({match}) => {
     const topRated = useFetch(['movie', 'top_rated']);
     const upcoming = useFetch(['movie', 'upcoming']);
     const nowPlaying = useFetch(['movie', 'now_playing']);
-    // if(match.params.media === 'movie') {
-
-    // }
-    console.log(popular)
-    console.log(match)
+ 
     return(
         <div>
             {popular && <CardContainer title={"Peliculas Populares"} movies={popular.results} link='/movie/popular/page/1' type='movie'/>}

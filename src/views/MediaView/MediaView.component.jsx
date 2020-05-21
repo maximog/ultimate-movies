@@ -2,12 +2,13 @@ import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import CardContainer from '../../components/CardContainer/CardContainer.component';
 
-const MediaView = ({ match = { params: '' } }) => {
-
+const MediaView = ({ match }) => {
+    //When fetching for 'trending' media, the apicall words have to be rearranged
     let search = (match.params.type === "trending") ? [match.params.type, match.params.media, 'week'] : [match.params.media, match.params.type];
+    //If fetching for a search query, apicall words are set. If not, check if it's fetching for genres, if not, leave search unchanged.
+    search = match.params.media === 'multi' ? ['search', 'multi'] : (match.params.genreName ? ['discover', `${match.params.media}`] : search);
 
-    search = match.params.media === 'multi' ? ['search', 'multi'] : search;
-
+    console.log(match)
     let title = '';
     switch (match.params.type) {
         case 'trending':
@@ -29,13 +30,14 @@ const MediaView = ({ match = { params: '' } }) => {
             title = 'Series al Aire';
             break;
         default:
-            title = `Resultados para: ${match.params.type}`;
+            title = match.params.media === 'multi' ? `Resultados para: ${match.params.type}`: `Genero: ${match.params.genreName}`;
             break;
     }
 
     const data = useFetch(search, {
         page: match.params.pageNumber,
-        ...(match.params.media === 'multi' && { query: match.params.type })
+        ...(match.params.media === 'multi' && { query: match.params.type }),
+        ...(match.params.genreNumber && { with_genres: match.params.genreNumber })
     });
     return (
         <div>

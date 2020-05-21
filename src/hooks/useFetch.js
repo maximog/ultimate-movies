@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useFetch = (arr, obj = { query: '', page: '' }) => {
+export const useFetch = (arr, obj = { query: '', page: '', with_genres: '' }) => {
 
     const [data, setData] = useState(null);
 
@@ -13,6 +13,7 @@ export const useFetch = (arr, obj = { query: '', page: '' }) => {
             language: "EN",
             ...(obj.query && { query: obj.query }),
             ...(obj.page && { page: obj.page }),
+            ...(obj.with_genres && { with_genres: obj.with_genres }),            
         });
         return urlApi;
     }
@@ -21,7 +22,6 @@ export const useFetch = (arr, obj = { query: '', page: '' }) => {
             .then(res => res.json())
             .then(data => setData(data));
     }, [...arr, obj.query]);
-
-    console.log(data)
+    console.log(arr, obj)
     return data;
 };

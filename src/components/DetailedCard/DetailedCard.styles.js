@@ -16,6 +16,7 @@ export const DetailedCardImgDiv = styled.div`
 
 export const DetailedCardContent = styled.div`
     margin-left: 20px;
+    width: 40%;
     h2 {
         color: ivory;
         margin: 0px 0px 20px 0px;
@@ -26,6 +27,11 @@ export const DetailedCardContent = styled.div`
     p {
         color: ivory;
         margin: 10px 0px;
+        a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: blue;
+        }
     }
 
 `;

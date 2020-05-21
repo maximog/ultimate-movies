@@ -21,6 +21,7 @@ const App = () => {
           <Route exact path='/movie' component={MovieView} />
           <Route exact path='/tv' component={TvView} />
           <Route exact path='/:media/:type/page/:pageNumber' component={MediaView} />
+          <Route exact path='/:media/:genreName/:genreNumber/page/:pageNumber' component={MediaView} />
           <Route exact path='/person/:id/:section' component={PersonView} />
           <Route path='/:media/:id/:section/:seasonNumber?' component={DetailedView} />
 

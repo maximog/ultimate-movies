@@ -6,6 +6,7 @@ import CastContainer from '../../components/CastContainer/CastContainer.componen
 import InfoLinks from '../../components/InfoLinks/InfoLinks.component';
 import { Switch, Route } from 'react-router-dom';
 import SeasonContainer from '../../components/SeasonContainer/SeasonContainer.component';
+import VideoContainer from '../../components/VideoContainer/VideoContainer.component';
 
 const DetailedView = ({ match }) => {
 
@@ -32,8 +33,8 @@ const DetailedView = ({ match }) => {
                 <Route exact path={`/${media}/${id}/cast`} render={()=> <CastContainer apiCall={[media, id, 'credits']} cardType={'cast'} />} />
                 <Route exact path={`/${media}/${id}/similar`} render={()=> <CastContainer apiCall={[media, id, 'similar']} cardType={'media'} type={media}/>} />
                 <Route exact path={`/${media}/${id}/seasons/:seasonNumber`} render={(props)=> <SeasonContainer id={id} data={info} {...props}/>} />
+                <Route exact path={`/:media/:id/videos`} render={(props)=> <VideoContainer {...props}/>} />
             </Switch>
-            {section === 'videos' && <p>Videos</p>}
         </DetailedStyledSection>
     );
 }

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar.component';
 import { StyledMain } from './App.styles';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
 const MovieView = lazy(() => import('./views/MovieView/MovieView.component'));
 const HomeView = lazy(() => import('./views/HomeView/HomeView.component'));
@@ -16,17 +17,19 @@ const App = () => {
     <Router>
       <NavBar />
       <StyledMain>
-        <Switch>
+        <ErrorBoundary>
           <Suspense fallback={<div style={{color: 'white'}}>Loading....</div>}>
+        <Switch>
             <Route exact path='/' component={HomeView} />
             <Route exact path='/movie' component={MovieView} />
             <Route exact path='/tv' component={TvView} />
             <Route exact path='/:media/:type/page/:pageNumber' component={MediaView} />
             <Route exact path='/:media/:genreName/:genreNumber/page/:pageNumber' component={MediaView} />
             <Route exact path='/person/:id/:section' component={PersonView} />
-            <Route path='/:media/:id/:section/:seasonNumber?' component={DetailedView} />
-          </Suspense>
+            <Route exact path='/:media/:id/:section/:seasonNumber?' component={DetailedView} />
         </Switch>
+          </Suspense>
+          </ErrorBoundary>
       </StyledMain>
     </Router>
   );

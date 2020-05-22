@@ -2,7 +2,7 @@ import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import CardContainer from '../../components/CardContainer/CardContainer.component';
 
-const MovieView = ({match}) => {
+const MovieView = () => {
     const popular = useFetch(['movie', 'popular']);
     const topRated = useFetch(['movie', 'top_rated']);
     const upcoming = useFetch(['movie', 'upcoming']);

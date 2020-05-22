@@ -3,7 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import CardContainer from '../../components/CardContainer/CardContainer.component';
 
 
-const HomeView = props => {
+const HomeView = () => {
     const movies = useFetch(['trending', 'movie', 'week']);
     const series = useFetch(['trending', 'tv', 'week']);
     return(

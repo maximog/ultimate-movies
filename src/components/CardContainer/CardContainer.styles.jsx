@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
+
+    .title {
+        width: 450px;
+    }
     a {
         text-decoration: none;
         cursor: pointer;
@@ -17,6 +21,7 @@ export const StyledSection = styled.section`
         align-items: center;
         margin: 30px 10px;
         color: ivory;
+        
        
         
     }
@@ -31,3 +36,12 @@ export const StyledSection = styled.section`
 }
 `;
 
+export const StyledTitleDiv = styled.div`
+    width: 450px;
+`;
+
+export const StyledMoviesDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+`;

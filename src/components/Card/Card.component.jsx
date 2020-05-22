@@ -5,11 +5,12 @@ import NoImage from '../../assets/noimage280.jpg';
 
 
 const Card = ({ movie: { poster_path, title, subtitle, id, media_type, name, profile_path, character }, type, cardType }) => {
-    
+
     const media = media_type ? media_type : type;
 
+//Default case is 'media'
     let params = {
-        cardName: name,
+        cardName: name ? name : title,
         dest: media,
         img: poster_path,
         sub: subtitle
@@ -25,12 +26,6 @@ const Card = ({ movie: { poster_path, title, subtitle, id, media_type, name, pro
             }
             break;
         case 'media':
-            params = {
-                cardName: name ? name : title,
-                dest: media,
-                img: poster_path,
-                sub: subtitle
-            }
             break;
         case 'credits':
             params = {

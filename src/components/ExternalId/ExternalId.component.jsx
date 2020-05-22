@@ -5,11 +5,11 @@ import { StyledA } from './ExternalId.styles';
 
 const ExternalId = ({data, people}) => {
 
-    let url = '';
     const [id, value] = data;
-
+    
     const title = people ? 'name' : 'title';
-
+    
+    let url = '';
     switch (id) {
         case 'imdb_id':
             url = `https://www.imdb.com/${title}`;

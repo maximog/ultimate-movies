@@ -7,7 +7,6 @@ const Episode = ({info}) => {
         <StyledArticle>
             <img src={info.still_path ? `https://image.tmdb.org/t/p/w500${info.still_path}` : NoImage} alt='' />
             <h3>EP {info.episode_number} - {info.name && info.name}</h3>
-            {/* {info.name && <h4>{info.name}</h4>} */}
             <p>{info.overview}</p>
         </StyledArticle>
     );

@@ -11,7 +11,7 @@ const DetailedCard = ({ data, type, match }) => {
     const img = type ? data.profile_path : data.poster_path;
     const title = data.original_title ? data.original_title : data.name;
     const content = type ? data.biography : data.overview;
-   
+
     return (
         <DetailedCardArticle>
             <DetailedCardImgDiv>

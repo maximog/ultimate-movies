@@ -2,17 +2,27 @@ import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import CardContainer from '../../components/CardContainer/CardContainer.component';
 import Pagination from '@material-ui/lab/Pagination';
-import {useHistory} from 'react-router-dom';
-import {StyledMediaViewDiv} from './MediaView.styles';
+import { useHistory } from 'react-router-dom';
+import { StyledMediaViewDiv } from './MediaView.styles';
 
 const MediaView = ({ match }) => {
+
     //When fetching for 'trending' media, the apicall words have to be rearranged
-    let search = (match.params.type === "trending") ? [match.params.type, match.params.media, 'week'] : [match.params.media, match.params.type];
+    let search = (match.params.type === "trending") ?
+        [match.params.type, match.params.media, 'week']
+        :
+        [match.params.media, match.params.type];
     //If fetching for a search query, apicall words are set. If not, check if it's fetching for genres, if not, leave search unchanged.
-    search = match.params.media === 'multi' ? ['search', 'multi'] : (match.params.genreName ? ['discover', `${match.params.media}`] : search);
+    search = match.params.media === 'multi' ?
+        ['search', 'multi']
+        :
+        (match.params.genreName ?
+            ['discover', `${match.params.media}`]
+            :
+            search
+        );
 
     const history = useHistory();
-    console.log(match)
     let title = '';
     switch (match.params.type) {
         case 'trending':
@@ -34,7 +44,7 @@ const MediaView = ({ match }) => {
             title = 'Series al Aire';
             break;
         default:
-            title = match.params.media === 'multi' ? `Resultados para: ${match.params.type}`: `Genero: ${match.params.genreName}`;
+            title = match.params.media === 'multi' ? `Resultados para: "${match.params.type}"` : `Genero: ${match.params.genreName}`;
             break;
     }
 
@@ -46,15 +56,17 @@ const MediaView = ({ match }) => {
 
     const handleChange = (e, page) => {
         !match.params.genreName ?
-        history.push(`/${match.params.media}/${match.params.type}/page/${page}`)
-        :
-        history.push(`/${match.params.media}/${match.params.genreName}/${match.params.genreNumber}/page/${page}`);
-    }
+            history.push(`/${match.params.media}/${match.params.type}/page/${page}`)
+            :
+            history.push(`/${match.params.media}/${match.params.genreName}/${match.params.genreNumber}/page/${page}`);
+    };
+
+    console.log(data)
 
     return (
         <StyledMediaViewDiv>
             {data && <CardContainer title={title} movies={data.results} type={match.params.media} cardType='media' />}
-            {data && <Pagination count={data.total_pages} color="primary" page={data.page} onChange={handleChange}/>}
+            {data && <Pagination count={data.total_pages} color="primary" page={data.page} onChange={handleChange} />}
         </StyledMediaViewDiv>
     );
 };

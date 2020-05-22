@@ -19,9 +19,7 @@ const DetailedView = ({ match }) => {
     }, [match]);
 
     const { media, id } = match.params;
-    let {section} = match.params;
 
-    console.log(info)
     return (
         info && <DetailedStyledSection >
             <DetailedImgDiv>
@@ -31,7 +29,7 @@ const DetailedView = ({ match }) => {
                 <InfoLinks selection={selection} media={media} id={id} match={match}/>
             </DetailedLinks>
             <Switch>
-                <Route exact path={`/:media/${id}/info`} render={(props)=> <DetailedCard data={info} {...props} />} />
+                <Route exact path={`/:media/:id/info`} render={(props)=> <DetailedCard data={info} {...props} />} />
                 <Route exact path={`/${media}/${id}/cast`} render={()=> <CastContainer apiCall={[media, id, 'credits']} cardType={'cast'} />} />
                 <Route exact path={`/${media}/${id}/similar`} render={()=> <CastContainer apiCall={[media, id, 'similar']} cardType={'media'} type={media}/>} />
                 <Route exact path={`/${media}/${id}/seasons/:seasonNumber`} render={(props)=> <SeasonContainer id={id} data={info} {...props}/>} />

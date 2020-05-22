@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DetailedCardArticle, DetailedCardImgDiv, DetailedCardContent } from './DetailedCard.styles';
+import { DetailedCardArticle, DetailedCardImgDiv, DetailedCardContent, DetailedExternalIds } from './DetailedCard.styles';
 import Rating from '@material-ui/lab/Rating';
 import NoImage from '../../assets/noimage280.jpg';
+import ExternalIdContainer from '../ExternalIdContainer/ExternalIdContainer.component';
+import ExternalId from '../ExternalId/ExternalId.component';
 
 const DetailedCard = ({ data, type, match }) => {
+
     const img = type ? data.profile_path : data.poster_path;
     const title = data.original_title ? data.original_title : data.name;
     const content = type ? data.biography : data.overview;
-    console.log(match)
+   
     return (
         <DetailedCardArticle>
             <DetailedCardImgDiv>
@@ -35,11 +38,11 @@ const DetailedCard = ({ data, type, match }) => {
                             <>
                                 <p>Temporadas: {data.number_of_seasons}</p>
                                 <p>Episodios: {data.number_of_episodes}</p>
-                               {data.episode_run_time[0] && <p>Duracion: {data.episode_run_time[0]} min</p>}
+                                {data.episode_run_time[0] && <p>Duracion: {data.episode_run_time[0]} min</p>}
                             </> :
                             <p>Duracion: {data.runtime} min</p>
                         }
-                        {data.genres.length > 0 && <p>Generos: {data.genres.map(genre => (
+                        {!!data.genres.length && <p>Generos: {data.genres.map(genre => (
                             <Link
                                 to={`/${match.params.media}/${genre.name}/${genre.id}/page/1`}
                                 key={genre.id}
@@ -50,14 +53,18 @@ const DetailedCard = ({ data, type, match }) => {
                         </p>}
                         {match.params.media === 'movie' ?
                             <>
-                                {data.budget > 0 && <p>Presupuesto: ${data.budget}</p>}
-                                {data.revenue > 0 && <p>Recaudacion: ${data.revenue}</p>}
+                                {!!data.budget && <p>Presupuesto: ${data.budget}</p>}
+                                {!!data.revenue && <p>Recaudacion: ${data.revenue}</p>}
                             </> :
                             null
                         }
-                        {data.production_companies > 0 && <p>Produccion: {data.production_companies.map(comp => comp.name).join(', ')}</p>}
+                        {!!data.production_companies && <p>Produccion: {data.production_companies.map(comp => comp.name).join(', ')}</p>}
                     </>
                 }
+                {<DetailedExternalIds>
+                    {type !== 'person' && <ExternalIdContainer match={match} />}
+                    {type === 'person' && <ExternalId data={['imdb_id', data.imdb_id]} people={true} />}
+                </DetailedExternalIds>}
             </DetailedCardContent>
         </DetailedCardArticle>
     );

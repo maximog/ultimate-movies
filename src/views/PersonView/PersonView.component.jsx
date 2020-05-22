@@ -15,10 +15,8 @@ const PersonView = ({ match }) => {
         setSelection(match.params.section)
     }, [match]);
 
-
     const { id } = match.params;
-    let { section } = match.params;
-
+    
     return (
         info && <DetailedStyledSection >
             <DetailedLinks>

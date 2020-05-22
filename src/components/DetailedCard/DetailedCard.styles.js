@@ -33,5 +33,11 @@ export const DetailedCardContent = styled.div`
             color: blue;
         }
     }
+`;
 
+export const DetailedExternalIds = styled.div`
+    .ext-id {
+        color: white;
+        font-size: 28px;
+    }
 `;

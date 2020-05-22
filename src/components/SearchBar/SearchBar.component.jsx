@@ -16,7 +16,6 @@ const SearchBar = () => {
     const handleSubmit = e => {
         e.preventDefault();
         setSearch('');
-        // const searchQuery = search.split(' ').join('%20');
         if(search !== '') history.push(`/multi/${search}/page/1`);
     }
 

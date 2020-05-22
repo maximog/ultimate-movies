@@ -21,7 +21,6 @@ export const useFetch = (arr, obj = { query: '', page: '', with_genres: '' }) =>
         fetch(getApiUrl())
             .then(res => res.json())
             .then(data => setData(data));
-    }, [...arr, obj.query]);
-    console.log(arr, obj)
+    }, [...arr, obj.query, obj.page]);
     return data;
 };

@@ -16,14 +16,28 @@ export const StyledEpisodesDiv = styled.div`
 export const StyledSelectorDiv = styled.div`
     margin-bottom: 30px;
     select {
-        border-radius: 5px;
+        /* border-radius: 5px;
         border: 0.5px solid grey;
         
         background-color: rgb(35, 39, 21);
         height: 30px;
         color: grey;
         font-family: Arial, Helvetica, sans-serif;
-        font-weight: 600;
+        font-weight: 600; */
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 30px;
+        color: rgb(220, 221, 222);
+        background-color: rgb(35, 39, 42);
+        cursor: pointer;
+        border-radius: 6px;
+        padding: 3px 31px 3px 16px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(220, 221, 222);
+        border-image: initial;
     
     cursor: pointer;
     }

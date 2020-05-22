@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { DetailedCardArticle, DetailedCardImgDiv, DetailedCardContent } from './DetailedCard.styles';
 import Rating from '@material-ui/lab/Rating';
+import NoImage from '../../assets/noimage280.jpg';
 
 const DetailedCard = ({ data, type, match }) => {
     const img = type ? data.profile_path : data.poster_path;
@@ -11,7 +12,7 @@ const DetailedCard = ({ data, type, match }) => {
     return (
         <DetailedCardArticle>
             <DetailedCardImgDiv>
-                <img src={`https://image.tmdb.org/t/p/original${img}`} alt='' />
+                <img src={img ? `https://image.tmdb.org/t/p/original${img}` : NoImage} alt='' />
             </DetailedCardImgDiv>
             <DetailedCardContent>
                 <h2>{title}</h2>

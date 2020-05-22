@@ -1,6 +1,9 @@
 import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import CardContainer from '../../components/CardContainer/CardContainer.component';
+import Pagination from '@material-ui/lab/Pagination';
+import {useHistory} from 'react-router-dom';
+import {StyledMediaViewDiv} from './MediaView.styles';
 
 const MediaView = ({ match }) => {
     //When fetching for 'trending' media, the apicall words have to be rearranged
@@ -8,7 +11,8 @@ const MediaView = ({ match }) => {
     //If fetching for a search query, apicall words are set. If not, check if it's fetching for genres, if not, leave search unchanged.
     search = match.params.media === 'multi' ? ['search', 'multi'] : (match.params.genreName ? ['discover', `${match.params.media}`] : search);
 
-    console.log(match)
+    const history = useHistory();
+  
     let title = '';
     switch (match.params.type) {
         case 'trending':
@@ -39,10 +43,16 @@ const MediaView = ({ match }) => {
         ...(match.params.media === 'multi' && { query: match.params.type }),
         ...(match.params.genreNumber && { with_genres: match.params.genreNumber })
     });
+
+    const handleChange = (e, page) => {
+        history.push(`/${match.params.media}/${match.params.type}/page/${page}`);
+    }
+
     return (
-        <div>
+        <StyledMediaViewDiv>
             {data && <CardContainer title={title} movies={data.results} type={match.params.media} cardType='media' />}
-        </div>
+            {data && <Pagination count={data.total_pages} color="primary" page={data.page} onChange={handleChange}/>}
+        </StyledMediaViewDiv>
     );
 };
 

@@ -5,4 +5,4 @@ Also shows individual movie details and cast/people details.
 Search Movies or Series
 Dynamic Routing
 
-Live version: ultimate-movies.now.sh
+Live version: http://ultimate-movies.now.sh

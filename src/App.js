@@ -10,6 +10,7 @@ const TvView = lazy(() => import('./views/TvView/TvView.component'));
 const MediaView = lazy(() => import('./views/MediaView/MediaView.component'));
 const PersonView = lazy(() => import('./views/PersonView/PersonView.component'));
 const DetailedView = lazy(() => import('./views/DetailedViews/DetailedView.component'));
+const NoMatch = lazy(() => import('./components/NoMatch/NoMatch.component'));
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
               <Route exact path='/:media/:genreName/:genreNumber/page/:pageNumber' component={MediaView} />
               <Route exact path='/person/:id/:section' component={PersonView} />
               <Route exact path='/:media/:id/:section/:seasonNumber?' component={DetailedView} />
+              <Route component={NoMatch} />
             </Switch>
           </Suspense>
         </ErrorBoundary>

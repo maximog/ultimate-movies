@@ -12,7 +12,7 @@ const MediaView = ({ match }) => {
     search = match.params.media === 'multi' ? ['search', 'multi'] : (match.params.genreName ? ['discover', `${match.params.media}`] : search);
 
     const history = useHistory();
-  
+    console.log(match)
     let title = '';
     switch (match.params.type) {
         case 'trending':
@@ -45,7 +45,10 @@ const MediaView = ({ match }) => {
     });
 
     const handleChange = (e, page) => {
-        history.push(`/${match.params.media}/${match.params.type}/page/${page}`);
+        !match.params.genreName ?
+        history.push(`/${match.params.media}/${match.params.type}/page/${page}`)
+        :
+        history.push(`/${match.params.media}/${match.params.genreName}/${match.params.genreNumber}/page/${page}`);
     }
 
     return (

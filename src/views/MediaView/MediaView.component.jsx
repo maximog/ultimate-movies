@@ -26,7 +26,7 @@ const MediaView = ({ match }) => {
     let title = '';
     switch (match.params.type) {
         case 'trending':
-            title = (match.params.media === 'tv' ? "Series en Tendencia" : "Peliculas en Tendencia");
+            title = (match.params.media === 'tv' ? "Series que son Tendencia" : "Peliculas que son Tendencia");
             break;
         case 'popular':
             title = (match.params.media === 'tv' ? "Series Populares" : "Peliculas Populares");
@@ -55,10 +55,7 @@ const MediaView = ({ match }) => {
     });
 
     const handleChange = (e, page) => {
-        !match.params.genreName ?
-            history.push(`/${match.params.media}/${match.params.type}/page/${page}`)
-            :
-            history.push(`/${match.params.media}/${match.params.genreName}/${match.params.genreNumber}/page/${page}`);
+        history.push(`${page}`);
     };
     
     return (

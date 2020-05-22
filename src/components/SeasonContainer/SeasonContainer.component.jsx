@@ -16,7 +16,7 @@ const SeasonContainer = ({ match, id, data }) => {
     }, [match]);
 
     const handleChange = (e) => {
-        history.push(`/tv/${id}/seasons/${e.target.value}`)
+        history.push(`${e.target.value}`);
     };
 
     return (

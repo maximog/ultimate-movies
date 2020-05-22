@@ -5,12 +5,10 @@ export const StyledMediaViewDiv = styled.div`
         padding-top: 20px;
         padding-bottom: 50px;
     }
-
     .MuiPagination-ul {
         justify-content: center;
         
     };
-
     .MuiPaginationItem-root {
         color: white;
         font-size: 20px;
@@ -21,5 +19,10 @@ export const StyledMediaViewDiv = styled.div`
     };
     .MuiPaginationItem-icon {
         margin: -10px -8px;
+    }
+    .MuiPaginationItem-textPrimary {
+        :hover {
+            background-color: grey;
+        }
     }
 `;

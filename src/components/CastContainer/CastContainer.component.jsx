@@ -19,9 +19,6 @@ const CastContainer = ({ apiCall, type, cardType }) => {
         default:
             break;
     }
-
-    console.log(results, 'results')
-    console.log(cardType, "cardType")
     return (
         <section>
             {data && <CardContainer movies={data[results]} type={type} cardType={cardType}/>}

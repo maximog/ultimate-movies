@@ -60,13 +60,11 @@ const MediaView = ({ match }) => {
             :
             history.push(`/${match.params.media}/${match.params.genreName}/${match.params.genreNumber}/page/${page}`);
     };
-
-    console.log(data)
-
+    
     return (
         <StyledMediaViewDiv>
             {data && <CardContainer title={title} movies={data.results} type={match.params.media} cardType='media' />}
-            {data && <Pagination count={data.total_pages} color="primary" page={data.page} onChange={handleChange} />}
+            {data && <Pagination count={data.total_pages} color="primary" page={data.page} onChange={handleChange} showFirstButton showLastButton />}
         </StyledMediaViewDiv>
     );
 };

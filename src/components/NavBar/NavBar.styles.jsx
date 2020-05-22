@@ -19,4 +19,8 @@ export const StyledLink = styled(Link)`
         fill: grey;
     }
 }
+.movie {
+    height: 33px;
+    margin-bottom: 15px;
+}
 `;

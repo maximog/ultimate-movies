@@ -19,7 +19,7 @@ const NavBar = () => {
                 <Home className='navbar-icon' />
             </StyledLink>
             <StyledLink to='/movie' checked={location.pathname === '/movie'}>
-                <Movies className='navbar-icon' />
+                <Movies className='navbar-icon movie' />
             </StyledLink>
             <StyledLink to='/tv' checked={location.pathname === '/tv'}>
                 <Series className='navbar-icon' />

@@ -35,11 +35,11 @@ const DetailedCard = ({ data, type, match }) => {
                             <>
                                 <p>Temporadas: {data.number_of_seasons}</p>
                                 <p>Episodios: {data.number_of_episodes}</p>
-                                <p>Duracion: {data.episode_run_time[0]} min</p>
+                               {data.episode_run_time[0] && <p>Duracion: {data.episode_run_time[0]} min</p>}
                             </> :
                             <p>Duracion: {data.runtime} min</p>
                         }
-                        <p>Generos: {data.genres.map(genre => (
+                        {data.genres.length > 0 && <p>Generos: {data.genres.map(genre => (
                             <Link
                                 to={`/${match.params.media}/${genre.name}/${genre.id}/page/1`}
                                 key={genre.id}
@@ -47,15 +47,15 @@ const DetailedCard = ({ data, type, match }) => {
                                 {genre.name}
                             </Link>
                         ))}
-                        </p>
+                        </p>}
                         {match.params.media === 'movie' ?
                             <>
-                                <p>Presupuesto: ${data.budget}</p>
-                                <p>Recaudacion: ${data.revenue}</p>
+                                {data.budget > 0 && <p>Presupuesto: ${data.budget}</p>}
+                                {data.revenue > 0 && <p>Recaudacion: ${data.revenue}</p>}
                             </> :
                             null
                         }
-                        <p>Produccion: {data.production_companies.map(comp => comp.name).join(', ')}</p>
+                        {data.production_companies > 0 && <p>Produccion: {data.production_companies.map(comp => comp.name).join(', ')}</p>}
                     </>
                 }
             </DetailedCardContent>

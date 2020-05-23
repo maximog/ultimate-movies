@@ -1,12 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { DetailedStyledSection, DetailedImgDiv, DetailedLinks } from './DetailedView.styles';
 import { useFetch } from '../../hooks/useFetch';
-// import DetailedCard from '../../components/DetailedCard/DetailedCard.component';
-// import CastContainer from '../../components/CastContainer/CastContainer.component';
-import InfoLinks from '../../components/InfoLinks/InfoLinks.component';
 import { Switch, Route } from 'react-router-dom';
-// import SeasonContainer from '../../components/SeasonContainer/SeasonContainer.component';
-// import VideoContainer from '../../components/VideoContainer/VideoContainer.component';
+import InfoLinks from '../../components/InfoLinks/InfoLinks.component';
+import { DetailedStyledSection, DetailedImgDiv, DetailedLinks } from './DetailedView.styles';
 
 const DetailedCard = lazy(() => import('../../components/DetailedCard/DetailedCard.component'));
 const CastContainer = lazy(() => import('../../components/CastContainer/CastContainer.component'));
@@ -16,7 +12,7 @@ const VideoContainer = lazy(() => import('../../components/VideoContainer/VideoC
 const DetailedView = ({ match }) => {
 
     const info = useFetch([match.params.media, match.params.id]);
-
+    console.log(info)
     const [selection, setSelection] = useState('info');
 
     useEffect(() => {
@@ -27,9 +23,10 @@ const DetailedView = ({ match }) => {
 
     return (
         info && <DetailedStyledSection >
-            <DetailedImgDiv>
-                <img src={`https://image.tmdb.org/t/p/original${info.backdrop_path}`} alt='' />
-            </DetailedImgDiv>
+            {info.backdrop_path &&
+                <DetailedImgDiv>
+                    <img src={`https://image.tmdb.org/t/p/original${info.backdrop_path}`} alt='main' />
+                </DetailedImgDiv>}
             <DetailedLinks>
                 <InfoLinks selection={selection} media={media} id={id} match={match} />
             </DetailedLinks>

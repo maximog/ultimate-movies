@@ -43,5 +43,6 @@ export const StyledTitleDiv = styled.div`
 export const StyledMoviesDiv = styled.div`
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-wrap: ${props => props.noWrap ? 'no-wrap' : 'wrap'};
 `;

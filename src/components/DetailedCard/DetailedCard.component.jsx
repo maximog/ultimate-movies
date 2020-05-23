@@ -58,7 +58,7 @@ const DetailedCard = ({ data, type, match }) => {
                             </> :
                             null
                         }
-                        {!!data.production_companies && <p>Produccion: {data.production_companies.map(comp => comp.name).join(', ')}</p>}
+                        {!!data.production_companies.length && <p>Produccion: {data.production_companies.map(comp => comp.name).join(', ')}</p>}
                     </>
                 }
                 {<DetailedExternalIds>

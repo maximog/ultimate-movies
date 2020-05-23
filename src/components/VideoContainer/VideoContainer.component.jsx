@@ -15,8 +15,10 @@ const VideoContainer = ({ match }) => {
                     src={`http://www.youtube.com/embed/${each.key}`}
                     frameBorder="0"
                     title={each.name}
+                    key={each.id}
                 />
             ))}
+            {info && !info.results.length && <div style={{color: 'white'}}>No hay videos</div>}
         </StyledVideoSection>
     );
 }

@@ -5,7 +5,6 @@ import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 import { Link } from 'react-router-dom';
 
 const CardContainer = ({ title, movies, link, type, cardType }) => {
-    console.log(movies)
     return (
         <StyledSection>
             {link ?
@@ -17,7 +16,7 @@ const CardContainer = ({ title, movies, link, type, cardType }) => {
                 :
                 <h2>{title}</h2>
             }
-            <StyledMoviesDiv>
+            <StyledMoviesDiv noWrap={link ? 1 : 0}>
                 {movies && movies.map((movie, i) => {
                     if (link && i < 5) {
                         return <Card key={movie.id + i} movie={movie} type={type} />

@@ -34,6 +34,7 @@ export const StyledSection = styled.section`
         fill: lightblue;
     }
     @media screen and (max-width: 450px) {
+        margin-left: 5px;
         h2 {
             font-size: 25px;
         }
@@ -44,6 +45,7 @@ export const StyledTitleDiv = styled.div`
     width: 400px;
     @media screen and (max-width: 450px) {
         width: 330px;
+    }
 `;
 
 export const StyledMoviesDiv = styled.div`

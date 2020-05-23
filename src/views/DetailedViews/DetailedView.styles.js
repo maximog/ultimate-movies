@@ -21,9 +21,8 @@ display: flex;
 margin: 30px;
 justify-content: center;
 p {
-    color: grey;
+    color: lightgray;
     margin: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 800;
     
     cursor: pointer;

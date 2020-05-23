@@ -16,18 +16,10 @@ export const StyledEpisodesDiv = styled.div`
 export const StyledSelectorDiv = styled.div`
     margin-bottom: 30px;
     select {
-        /* border-radius: 5px;
-        border: 0.5px solid grey;
-        
-        background-color: rgb(35, 39, 21);
-        height: 30px;
-        color: grey;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 600; */
         width: 200px;
         height: 50px;
         font-size: 20px;
-        font-weight: 300;
+        font-weight: lighter;
         line-height: 30px;
         color: rgb(220, 221, 222);
         background-color: rgb(35, 39, 42);

@@ -17,27 +17,27 @@ export const DetailedCardImgDiv = styled.div`
 export const DetailedCardContent = styled.div`
     margin-left: 20px;
     width: 40%;
+    color: lightgray;
     h2 {
-        color: ivory;
         margin: 0px 0px 20px 0px;
-        font-size: 28px;
-        font-weight: 300;
+        font-size: 30px;
+        font-weight: 400;
     }
     
     p {
-        color: ivory;
         margin: 10px 0px;
         a {
-            margin-right: 10px;
+            margin-right: 5px;
+            margin-left: 5px;
             text-decoration: none;
-            color: blue;
+            color: blueviolet;
         }
     }
 `;
 
 export const DetailedExternalIds = styled.div`
     .ext-id {
-        color: white;
+        color: lightgray;
         font-size: 28px;
     }
 `;

@@ -5,6 +5,8 @@ export const StyledInfoLinkDiv = styled.div`
     a {
         text-decoration: none;
         text-transform: uppercase;
+        font-size: 24px;
+        color: lightgray;
     }
 
     .selected {

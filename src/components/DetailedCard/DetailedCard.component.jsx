@@ -27,7 +27,7 @@ const DetailedCard = ({ data, type, match }) => {
                         precision={0.5}
                         readOnly={true}
                         size='small'
-                        style={{ color: 'ivory' }}
+                        // style={{ color: 'ivory' }}
                     />
                     </p>}
                 <p>{content}</p>

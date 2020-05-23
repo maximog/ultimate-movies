@@ -10,8 +10,9 @@ export const StyledMediaViewDiv = styled.div`
         
     };
     .MuiPaginationItem-root {
-        color: white;
+        color: lightgray;
         font-size: 20px;
+        font-family: 'Roboto Condensed', sans-serif;
     };
     .MuiSvgIcon-root {
         width: 2em;

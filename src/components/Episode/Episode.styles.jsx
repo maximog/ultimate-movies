@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledArticle = styled.article`
     
-    color: ivory;
+    color: lightgray;
     display: flex;
     flex-direction: column;
     width: 450px;

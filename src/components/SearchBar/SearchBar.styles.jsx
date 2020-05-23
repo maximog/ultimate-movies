@@ -5,10 +5,10 @@ form {
     display: flex;
     align-items: center;
     .searchbar-icon {
-        height: 28px;
+        height: 22px;
         width: auto;
-        margin: 20px 20px 20px 30px;
-        fill: white;
+        margin: 20px 10px 20px 30px;
+        fill: grey;
         cursor: pointer;
 }
     .searchbar-input {
@@ -16,9 +16,10 @@ form {
         border: none;
         height: 40px;
         width: 300px;
-        color: white;
-        font-size: 15px;
+        color: ivory;
+        font-size: 18px;
         padding-left: 10px;
+        font-weight: 400;
     }
 }
 `;

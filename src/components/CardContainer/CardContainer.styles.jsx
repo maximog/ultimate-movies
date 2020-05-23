@@ -20,8 +20,9 @@ export const StyledSection = styled.section`
         display: flex;
         align-items: center;
         margin: 30px 10px;
-        color: ivory;
-        
+        font-weight: lighter;
+        color: lightgray;
+        font-size: 28px;
        
         
     }

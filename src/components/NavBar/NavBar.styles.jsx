@@ -13,10 +13,10 @@ export const StyledLink = styled(Link)`
     height: 28px;
     width: auto;
     margin: 20px;
-    fill: ${props => props.checked ? 'grey' : 'white'};
+    fill: ${props => props.checked ? 'white' : 'grey'};
     cursor: pointer;
     :hover {
-        fill: grey;
+        fill: white;
     }
 }
 .movie {

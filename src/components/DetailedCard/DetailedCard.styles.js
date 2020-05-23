@@ -4,6 +4,11 @@ export const DetailedCardArticle = styled.article`
     display: flex;
     flex-direction: row;
     margin: 50px;
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+        justify-content: left;
+        margin: 20px;
+    }
 `;
 
 export const DetailedCardImgDiv = styled.div`
@@ -33,6 +38,15 @@ export const DetailedCardContent = styled.div`
             color: blueviolet;
         }
     }
+    @media screen and (max-width: 600px) {
+        margin-left: 0;
+        width: 80%;
+    }
+`;
+
+export const StyledGenreP = styled.p`
+    display: flex;
+    flex-wrap: wrap;
 `;
 
 export const DetailedExternalIds = styled.div`

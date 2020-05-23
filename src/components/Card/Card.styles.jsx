@@ -34,4 +34,13 @@ export const StyledArticle = styled.article`
     h4 {
         font-weight: lighter;
     }
+
+    @media screen and (max-width: 450px) {
+        h3 {
+            font-size: 18px;
+        }
+        h4 {
+            font-size: 14px;
+        }
+    }
 `;

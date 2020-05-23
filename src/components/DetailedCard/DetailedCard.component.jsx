@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DetailedCardArticle, DetailedCardImgDiv, DetailedCardContent, DetailedExternalIds } from './DetailedCard.styles';
+import { DetailedCardArticle, DetailedCardImgDiv, DetailedCardContent, DetailedExternalIds, StyledGenreP } from './DetailedCard.styles';
 import Rating from '@material-ui/lab/Rating';
 import NoImage from '../../assets/noimage280.jpg';
 import ExternalIdContainer from '../ExternalIdContainer/ExternalIdContainer.component';
@@ -27,7 +27,6 @@ const DetailedCard = ({ data, type, match }) => {
                         precision={0.5}
                         readOnly={true}
                         size='small'
-                        // style={{ color: 'ivory' }}
                     />
                     </p>}
                 <p>{content}</p>
@@ -42,7 +41,7 @@ const DetailedCard = ({ data, type, match }) => {
                             </> :
                             <p>Duracion: {data.runtime} min</p>
                         }
-                        {!!data.genres.length && <p>Generos: {data.genres.map(genre => (
+                        {!!data.genres.length && <StyledGenreP>Generos: {data.genres.map(genre => (
                             <Link
                                 to={`/${match.params.media}/${genre.name}/${genre.id}/page/1`}
                                 key={genre.id}
@@ -50,7 +49,7 @@ const DetailedCard = ({ data, type, match }) => {
                                 {genre.name}
                             </Link>
                         ))}
-                        </p>}
+                        </StyledGenreP>}
                         {match.params.media === 'movie' ?
                             <>
                                 {!!data.budget && <p>Presupuesto: ${data.budget.toLocaleString('en')}</p>}

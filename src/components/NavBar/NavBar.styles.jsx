@@ -1,11 +1,16 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const StyledNav = styled.nav`
 background-color: #141414;
 display: flex;
-height: 60px;
+/* height: 60px; */
 align-items: center;
+width: 100%;
+flex-wrap: wrap;
+@media screen and (max-width: 430px) {
+    justify-content: space-around;
+}
 `;
 
 export const StyledLink = styled(Link)`

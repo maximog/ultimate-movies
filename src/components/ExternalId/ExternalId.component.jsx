@@ -3,12 +3,12 @@ import { FaImdb, FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { StyledA } from './ExternalId.styles';
 
-const ExternalId = ({data, people}) => {
+const ExternalId = ({ data, people }) => {
 
     const [id, value] = data;
-    
+
     const title = people ? 'name' : 'title';
-    
+
     let url = '';
     switch (id) {
         case 'imdb_id':
@@ -28,12 +28,15 @@ const ExternalId = ({data, people}) => {
     }
 
     return (
-        value && <StyledA href={`${url}/${value}`}>
-            {id === 'imdb_id' && <FaImdb className='ext-id' />}
-            {id === 'facebook_id' && <FaFacebookSquare className='ext-id' />}
-            {id === 'twitter_id' && <FaTwitterSquare className='ext-id' />}
-            {id === 'instagram_id' && <GrInstagram className='ext-id' />}
-        </StyledA>
+        id !== 'id' ?
+            <StyledA href={`${url}/${value}`}>
+                {id === 'imdb_id' && <FaImdb className='ext-id' />}
+                {id === 'facebook_id' && <FaFacebookSquare className='ext-id' />}
+                {id === 'twitter_id' && <FaTwitterSquare className='ext-id' />}
+                {id === 'instagram_id' && <GrInstagram className='ext-id' />}
+            </StyledA>
+            :
+            null
     );
 }
 

@@ -8,4 +8,7 @@ export const StyledVideoSection = styled.section`
     iframe {
         margin: 10px 10px 10px 10px;
     }
+    @media screen and (max-width: 600px) {
+        margin-left: 10px;
+}
 `;

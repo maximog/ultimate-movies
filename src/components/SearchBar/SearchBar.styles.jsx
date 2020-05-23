@@ -21,6 +21,9 @@ form {
         font-size: 18px;
         padding-left: 10px;
         font-weight: 400;
+        @media screen and (max-width: 600px) {
+            width: 150px;
+        }
     }
 }
 `;

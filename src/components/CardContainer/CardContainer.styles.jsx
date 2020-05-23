@@ -4,9 +4,9 @@ export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     
-    .title {
+    /* .title {
         width: 450px;
-    }
+    } */
     a {
         text-decoration: none;
         cursor: pointer;
@@ -26,6 +26,7 @@ export const StyledSection = styled.section`
         font-weight: lighter;
         color: lightgray;
         font-size: 28px; 
+        
     }
     margin-left: 20px;
     .cardcontainer-arrow-icon {
@@ -34,15 +35,25 @@ export const StyledSection = styled.section`
         margin: 0px 0px 0px 10px;
         padding-top: 5px;
         fill: lightblue;
+    }
+    @media screen and (max-width: 450px) {
+        h2 {
+            font-size: 22px;
+        }
 }
 `;
 
 export const StyledTitleDiv = styled.div`
-    width: 450px;
+    width: 400px;
+    @media screen and (max-width: 450px) {
+        width: 300px;
 `;
 
 export const StyledMoviesDiv = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: ${props => props.noWrap ? 'no-wrap' : 'wrap'};
+    @media screen and (max-width: 800px) {
+        flex-wrap: wrap;
+}
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import CardContainer from '../CardContainer/CardContainer.component';
 import { useFetch } from '../../hooks/useFetch';
+import {StyledCastSection} from './CastContainer.styles';
 
 
 const CastContainer = ({ apiCall, type, cardType }) => {
@@ -19,9 +20,9 @@ const CastContainer = ({ apiCall, type, cardType }) => {
             break;
     }
     return (
-        <section>
+        <StyledCastSection>
             {data && <CardContainer movies={data[results]} type={type} cardType={cardType} />}
-        </section>
+        </StyledCastSection>
     );
 }
 

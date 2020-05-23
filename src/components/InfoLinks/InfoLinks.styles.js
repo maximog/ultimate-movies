@@ -19,5 +19,10 @@ export const StyledInfoLinkDiv = styled.div`
     @media screen and (max-width: 450px) {
         flex-direction: column;
         justify-content: left;
+        a {
+            p {
+                margin-left: 0;
+            }
+        }
     }
 `;

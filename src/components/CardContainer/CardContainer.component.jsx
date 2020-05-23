@@ -14,7 +14,7 @@ const CardContainer = ({ title, movies, link, type, cardType }) => {
                     </Link>
                 </StyledTitleDiv>
                 :
-                <h2>{title}</h2>
+                title && <h2>{title}</h2>
             }
             <StyledMoviesDiv noWrap={link ? 1 : 0}>
                 {movies && movies.map((movie, i) => {

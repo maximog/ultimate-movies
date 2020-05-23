@@ -9,6 +9,6 @@ export const StyledVideoSection = styled.section`
         margin: 10px 10px 10px 10px;
     }
     @media screen and (max-width: 600px) {
-        margin-left: 10px;
+        margin-left: 2px;
 }
 `;

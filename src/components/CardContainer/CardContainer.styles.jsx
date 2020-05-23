@@ -4,9 +4,6 @@ export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     
-    /* .title {
-        width: 450px;
-    } */
     a {
         text-decoration: none;
         cursor: pointer;

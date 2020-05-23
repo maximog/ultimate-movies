@@ -5,7 +5,7 @@ export const StyledArticle = styled.article`
     display: flex;
     flex-direction: column;
     width: 280px;
-    margin: 5px;
+    margin: 20px 10px;
     cursor: pointer;
     a {
         text-decoration: none;
@@ -15,6 +15,7 @@ export const StyledArticle = styled.article`
         width: 100%;
         height: 420px;
         transition: all 0.3s;
+        margin-bottom: 20px;
     }
     :hover {
         img {

@@ -8,6 +8,7 @@ export const DetailedCardArticle = styled.article`
         flex-direction: column;
         justify-content: left;
         margin: 20px;
+        margin-top: 5px;
     }
 `;
 
@@ -41,6 +42,9 @@ export const DetailedCardContent = styled.div`
     @media screen and (max-width: 600px) {
         margin-left: 0;
         width: 80%;
+        h2 {
+            margin-top: 20px;
+        }
     }
 `;
 

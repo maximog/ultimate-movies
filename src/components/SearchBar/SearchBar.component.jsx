@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {ReactComponent as Lupa } from '../../assets/lupa.svg';
 import { StyledLabel } from './SearchBar.styles';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 
 const SearchBar = () => {
 
     const [search, setSearch] = useState('');
 
     const history = useHistory();
+    const location = useLocation();
 
     const handleChange = e => {
         setSearch(e.target.value);
@@ -19,11 +20,10 @@ const SearchBar = () => {
         if(search !== '') history.push(`/multi/${search}/page/1`);
     }
 
-
     return(
-        <StyledLabel>
+        <StyledLabel checked={location.pathname.includes('/multi')}>
         <form onSubmit={handleSubmit}>
-            <Lupa className='searchbar-icon' onClick={handleSubmit}/>
+            <Lupa className='searchbar-icon' onClick={handleSubmit} />
             <input type='text' placeholder='Search' className='searchbar-input' value={search} onChange={handleChange} />
         </form>
         </StyledLabel>

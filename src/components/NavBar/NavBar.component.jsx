@@ -18,10 +18,10 @@ const NavBar = () => {
             <StyledLink to='/' checked={location.pathname === '/'}>
                 <Home className='navbar-icon' />
             </StyledLink>
-            <StyledLink to='/movie' checked={location.pathname === '/movie'}>
+            <StyledLink to='/movie' checked={location.pathname.includes('/movie')}>
                 <Movies className='navbar-icon movie' />
             </StyledLink>
-            <StyledLink to='/tv' checked={location.pathname === '/tv'}>
+            <StyledLink to='/tv' checked={location.pathname.includes('/tv')}>
                 <Series className='navbar-icon' />
             </StyledLink>
             <SearchBar />

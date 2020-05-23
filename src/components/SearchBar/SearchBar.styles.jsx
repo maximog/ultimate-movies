@@ -8,8 +8,9 @@ form {
         height: 22px;
         width: auto;
         margin: 20px 10px 20px 30px;
-        fill: grey;
+        /* fill: grey; */
         cursor: pointer;
+        fill: ${props => props.checked ? 'white' : 'grey'};
 }
     .searchbar-input {
         background-color: #141414;

@@ -6,7 +6,6 @@ export const StyledArticle = styled.article`
     display: flex;
     flex-direction: column;
     width: 450px;
-    /* height: 500px; */
     margin: 5px;
     img {
         width: 100%;
@@ -17,5 +16,11 @@ export const StyledArticle = styled.article`
     }
     p {
         margin: 0px 0px 10px 0px;
+    }
+    @media screen and (max-width: 1024px) {
+        width: 300px;
+        img {
+            height: 168px;
+        }
     }
 `;

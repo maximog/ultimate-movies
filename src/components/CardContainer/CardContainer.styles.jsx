@@ -3,13 +3,16 @@ import styled from 'styled-components';
 export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
-
+    
     .title {
         width: 450px;
     }
     a {
         text-decoration: none;
         cursor: pointer;
+        h2:hover {
+            color: ivory;
+        }
     }
     .container-movies {
         display: flex;
@@ -22,9 +25,7 @@ export const StyledSection = styled.section`
         margin: 30px 10px;
         font-weight: lighter;
         color: lightgray;
-        font-size: 28px;
-       
-        
+        font-size: 28px; 
     }
     margin-left: 20px;
     .cardcontainer-arrow-icon {
@@ -33,7 +34,6 @@ export const StyledSection = styled.section`
         margin: 0px 0px 0px 10px;
         padding-top: 5px;
         fill: lightblue;
-        
 }
 `;
 
@@ -44,6 +44,5 @@ export const StyledTitleDiv = styled.div`
 export const StyledMoviesDiv = styled.div`
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     flex-wrap: ${props => props.noWrap ? 'no-wrap' : 'wrap'};
 `;

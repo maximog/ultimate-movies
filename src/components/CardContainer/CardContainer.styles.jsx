@@ -35,7 +35,7 @@ export const StyledSection = styled.section`
     }
     @media screen and (max-width: 450px) {
         h2 {
-            font-size: 22px;
+            font-size: 25px;
         }
 }
 `;
@@ -43,7 +43,7 @@ export const StyledSection = styled.section`
 export const StyledTitleDiv = styled.div`
     width: 400px;
     @media screen and (max-width: 450px) {
-        width: 300px;
+        width: 330px;
 `;
 
 export const StyledMoviesDiv = styled.div`

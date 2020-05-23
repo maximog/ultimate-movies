@@ -12,7 +12,7 @@ const VideoContainer = ({ match }) => {
                     type="text/html"
                     width="640"
                     height="360"
-                    src={`http://www.youtube.com/embed/${each.key}`}
+                    src={`https://www.youtube.com/embed/${each.key}`}
                     frameBorder="0"
                     title={each.name}
                     key={each.id}

@@ -13,7 +13,7 @@ export const StyledArticle = styled.article`
     }
     img {
         width: 100%;
-        height: 420px;
+        height: auto;
         transition: all 0.3s;
         margin-bottom: 20px;
     }

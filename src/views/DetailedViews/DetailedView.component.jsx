@@ -12,7 +12,6 @@ const VideoContainer = lazy(() => import('../../components/VideoContainer/VideoC
 const DetailedView = ({ match }) => {
 
     const info = useFetch([match.params.media, match.params.id]);
-    console.log(info)
     const [selection, setSelection] = useState('info');
 
     useEffect(() => {

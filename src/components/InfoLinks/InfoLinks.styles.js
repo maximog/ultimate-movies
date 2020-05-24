@@ -16,7 +16,7 @@ export const StyledInfoLinkDiv = styled.div`
             text-decoration: underline;
         }
     }
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 500px) {
         flex-direction: column;
         justify-content: left;
         a {

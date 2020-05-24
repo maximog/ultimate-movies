@@ -19,7 +19,7 @@ const CardContainer = ({ title, movies, link, type, cardType }) => {
             <StyledMoviesDiv noWrap={link ? 1 : 0}>
                 {movies && movies.map((movie, i) => {
                     if (link && i < 5) {
-                        return <Card key={movie.id + i} movie={movie} type={type} />
+                        return <Card key={movie.id + title} movie={movie} type={type} />
                     } else if (!link) {
                         return <Card key={movie.id + i} movie={movie} type={type} cardType={cardType} />
                     }

@@ -25,8 +25,8 @@ const PersonView = ({ match }) => {
             <Switch>
                 <Route 
                     exact 
-                    path={`/person/${id}/info`} 
-                    render={() => <DetailedCard data={info} type={'person'} />} 
+                    path={`/:media/:id/info`} 
+                    render={(props) => <DetailedCard data={info} type={'person'} {...props} />} 
                 />
                 <Route
                     exact

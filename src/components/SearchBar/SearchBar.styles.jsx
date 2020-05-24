@@ -8,7 +8,6 @@ form {
         height: 22px;
         width: auto;
         margin: 20px 10px 20px 30px;
-        /* fill: grey; */
         cursor: pointer;
         fill: ${props => props.checked ? 'white' : 'grey'};
 }

@@ -8,7 +8,7 @@ const Card = ({ movie: { poster_path, title, subtitle, id, media_type, name, pro
 
     const media = media_type ? media_type : type;
 
-//Default case is 'media'
+    //Default case is 'media'
     let params = {
         cardName: name ? name : title,
         dest: media,
@@ -29,9 +29,7 @@ const Card = ({ movie: { poster_path, title, subtitle, id, media_type, name, pro
             break;
         case 'credits':
             params = {
-                cardName: title,
-                dest: media,
-                img: poster_path,
+                ...params,
                 sub: character
             }
             break;

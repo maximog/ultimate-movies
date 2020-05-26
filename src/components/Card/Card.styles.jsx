@@ -13,7 +13,7 @@ export const StyledArticle = styled.article`
     }
     img {
         width: 100%;
-        height: auto;
+        height: 420px;
         transition: all 0.3s;
         margin-bottom: 20px;
     }
@@ -47,7 +47,5 @@ export const StyledArticle = styled.article`
         h4 {
             font-size: 14px;
         }
-    }
-    @media screen and (max-width: 450px) {
     }
 `;

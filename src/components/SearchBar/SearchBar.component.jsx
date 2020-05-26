@@ -21,12 +21,12 @@ const SearchBar = () => {
     }
 
     return (
-        <StyledLabel checked={location.pathname.includes('/multi')}>
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+            <StyledLabel checked={location.pathname.includes('/multi')}>
                 <Lupa className='searchbar-icon' onClick={handleSubmit} />
                 <input type='text' placeholder='Search' className='searchbar-input' value={search} onChange={handleChange} />
-            </form>
-        </StyledLabel>
+            </StyledLabel>
+        </form>
     );
 }
 

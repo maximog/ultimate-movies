@@ -51,8 +51,8 @@ const DetailedCard = ({ data, type, match }) => {
                         </StyledGenreP>}
                         {match.params.media === 'movie' ?
                             <>
-                                {!!data.budget && <p>Presupuesto: ${data.budget.toLocaleString('en')}</p>}
-                                {!!data.revenue && <p>Recaudacion: ${data.revenue.toLocaleString('en')}</p>}
+                                {Boolean(data.budget) && <p>Presupuesto: ${data.budget.toLocaleString('en')}</p>}
+                                {Boolean(data.revenue) && <p>Recaudacion: ${data.revenue.toLocaleString('en')}</p>}
                             </> :
                             null
                         }

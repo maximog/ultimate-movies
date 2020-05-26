@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledLabel = styled.label`
-form {
     display: flex;
     align-items: center;
     .searchbar-icon {
@@ -24,5 +23,4 @@ form {
             width: 150px;
         }
     }
-}
 `;
